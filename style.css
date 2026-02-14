@@ -1,3 +1,4 @@
+/* Réinitialisation et base */
 * {
     margin: 0;
     padding: 0;
@@ -5,44 +6,121 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+/* Barre de recherche */
+.search-bar {
+    background-color: #ffffff;
+    padding: 10px 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.search-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
+    background-color: #f0f2f5;
+    border-radius: 20px;
+    padding: 8px 16px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-main {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 450px;
-    padding: 2rem;
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
-}
-
-p {
-    color: #666;
-    margin-bottom: 2rem;
+.search-container i {
+    color: #606770;
+    margin-right: 8px;
     font-size: 1rem;
 }
 
-nav a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+.search-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
 }
 
-nav a:hover {
-    color: #764ba2;
+.search-container input::placeholder {
+    color: #8d949e;
+}
+
+/* Barre de navigation */
+.bottom-nav {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #dddfe2;
+    position: sticky;
+    top: 60px; /* juste sous la barre de recherche (ajustez selon la hauteur) */
+    z-index: 99;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #606770;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item i {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    font-size: 0.7rem;
+}
+
+.nav-item.active {
+    color: #1877f2; /* bleu Facebook */
+}
+
+.nav-item:hover {
+    background-color: #f0f2f5;
+}
+
+/* Contenu principal */
+.content {
+    padding: 20px 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Adaptations pour tablettes et PC */
+@media (min-width: 768px) {
+    .nav-item {
+        flex-direction: row;
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    .nav-item i {
+        font-size: 1.2rem;
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+    .nav-item span {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-container {
+        max-width: 800px;
+    }
+    .bottom-nav {
+        justify-content: center;
+        gap: 30px;
+    }
 }
